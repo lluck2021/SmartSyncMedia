@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/lluck2021/cust-dash-react.git",
+  "homepage": "http://lluck2021.github.io/cust-dash-react",
   "name": "cust-dash",
   "version": "0.1.0",
   "private": true,
@@ -24,8 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
