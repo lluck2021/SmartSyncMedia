@@ -1,0 +1,152 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+body {
+  background-image: url('../src/images/images.jpg');
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+* {
+  box-sizing: border-box;
+  /* Ensure padding is included in width/height */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  /* Set a default font */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  /* Stack children vertically */
+  align-items: center;
+  /* Center-align items horizontally */
+}
+
+.heading {
+  margin: 20px 0;
+  /* Add some space around the heading */
+  font-family: 'Irish Grover';
+  font-size: 36px;
+  background-color: tan;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.content {
+  display: flex;
+  /* Set flex on the content area */
+  width: 100%;
+  /* Full width of the container */
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  /* Stack boxes vertically */
+  flex: 1;
+  /* Left section takes 1 part of the available space */
+  padding: 20px;
+  /* Add padding */
+}
+
+.box {
+  background-color: lightblue;
+  margin: 10px 0;
+  /* Space between boxes */
+  padding: 20px;
+  border: 1px solid #000;
+}
+
+.drop-area {
+  border: 2px dashed #848181;
+  /* Dashed border for the drop area */
+  padding: 20px;
+  margin: 10px 0;
+  /* Space around the drop area */
+  text-align: center;
+  /* Center text in the drop area */
+  background-color: #ccc;
+}
+
+.preview {
+  flex: 1;
+  /* Preview section takes 1 part of the available space */
+  padding: 20px;
+  /* Add padding */
+  background-color: lightgray;
+  margin-left: 20px;
+  /* Space between left section and preview */
+  margin-right: 20px;
+}
+
+.preview-box {
+  border: 1px solid #000;
+  /* Add border to the preview box */
+  padding: 20px;
+  height: 400px;
+  /* Set a fixed height for the preview box */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.generate-button {
+  margin-top: 20px;
+  /* Space above the button */
+
+}
+
+.accept {
+  margin-top: 10px;
+  /* Space above the buttons */
+  background-color: green;
+  margin: 10px;
+}
+
+.deny {
+  margin-top: 10px;
+  /* Space above the buttons */
+  background-color: red;
+}
+
+
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/SmartSyncMedia/static/css/main.0a9913a0.css",
+    "main.js": "/SmartSyncMedia/static/js/main.31fe32b9.js",
+    "static/js/453.4d5d7508.chunk.js": "/SmartSyncMedia/static/js/453.4d5d7508.chunk.js",
+    "index.html": "/SmartSyncMedia/index.html",
+    "main.0a9913a0.css.map": "/SmartSyncMedia/static/css/main.0a9913a0.css.map",
+    "main.31fe32b9.js.map": "/SmartSyncMedia/static/js/main.31fe32b9.js.map",
+    "453.4d5d7508.chunk.js.map": "/SmartSyncMedia/static/js/453.4d5d7508.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0a9913a0.css",
+    "static/js/main.31fe32b9.js"
+  ]
+}
