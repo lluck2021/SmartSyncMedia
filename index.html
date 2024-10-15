@@ -1,1 +1,121 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/SmartSyncMedia/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/SmartSyncMedia/logo192.png"/><link rel="manifest" href="/SmartSyncMedia/manifest.json"/><title>React App</title><script defer="defer" src="/SmartSyncMedia/static/js/main.31fe32b9.js"></script><link href="/SmartSyncMedia/static/css/main.0a9913a0.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Social Media Post Simulator</title>
+   <style>
+       body {
+           font-family: Arial, sans-serif;
+           margin: 20px;
+       }
+       form {
+           margin-bottom: 20px;
+       }
+       input, textarea {
+           display: block;
+           margin: 10px 0;
+           padding: 10px;
+           width: 300px;
+       }
+       button {
+           padding: 10px 15px;
+       }
+       #title {
+           text-align: center;
+           margin-bottom: 40px;
+           font-size: 24px;
+           font-weight: bold;
+       }
+       h1 img {
+           vertical-align: middle;
+           margin-left: 10px;
+           width: 30px;
+           height: 30px;
+       }
+   </style>
+</head>
+<body>
+
+   <h1 id="title">Smart Sync Media</h1>
+
+   <h1>Post to Facebook
+       <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+   </h1>
+   <form id="facebookForm">
+       <input type="text" id="fbAccessToken" placeholder="Facebook Access Token" required>
+       <input type="text" id="fbPageId" placeholder="Facebook Page ID" required>
+       <textarea id="fbMessage" placeholder="Your message here" required></textarea>
+       <button type="submit">Post to Facebook</button>
+   </form>
+ 
+   <h1>Post to Instagram
+       <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+   </h1>
+   <form id="instagramForm">
+       <input type="text" id="igAccessToken" placeholder="Instagram Access Token" required>
+       <input type="text" id="igAccountId" placeholder="Instagram Account ID" required>
+       <input type="text" id="igImageUrl" placeholder="Image URL" required>
+       <textarea id="igCaption" placeholder="Your caption here" required></textarea>
+       <button type="submit">Post to Instagram</button>
+   </form>
+ 
+   <script>
+       document.getElementById('facebookForm').addEventListener('submit', async function(event) {
+           event.preventDefault();
+           const accessToken = document.getElementById('fbAccessToken').value;
+           const pageId = document.getElementById('fbPageId').value;
+           const message = document.getElementById('fbMessage').value;
+ 
+           const response = await fetch(`https://graph.facebook.com/v11.0/${pageId}/feed`, {
+               method: 'POST',
+               headers: {
+                   'Content-Type': 'application/x-www-form-urlencoded'
+               },
+               body: `message=${encodeURIComponent(message)}&access_token=${accessToken}`
+           });
+ 
+           const result = await response.json();
+           console.log(result);
+           alert(JSON.stringify(result));
+       });
+ 
+       document.getElementById('instagramForm').addEventListener('submit', async function(event) {
+           event.preventDefault();
+           const accessToken = document.getElementById('igAccessToken').value;
+           const accountId = document.getElementById('igAccountId').value;
+           const imageUrl = document.getElementById('igImageUrl').value;
+           const caption = document.getElementById('igCaption').value;
+ 
+           // Step 1: Upload Image
+           const uploadResponse = await fetch(`https://graph.facebook.com/v11.0/${accountId}/media`, {
+               method: 'POST',
+               headers: {
+                   'Content-Type': 'application/x-www-form-urlencoded'
+               },
+               body: `image_url=${encodeURIComponent(imageUrl)}&caption=${encodeURIComponent(caption)}&access_token=${accessToken}`
+           });
+ 
+           const uploadResult = await uploadResponse.json();
+           if (uploadResult.id) {
+               // Step 2: Publish Image
+               const creationId = uploadResult.id;
+               const publishResponse = await fetch(`https://graph.facebook.com/v11.0/${accountId}/media_publish`, {
+                   method: 'POST',
+                   headers: {
+                       'Content-Type': 'application/x-www-form-urlencoded'
+                   },
+                   body: `creation_id=${creationId}&access_token=${accessToken}`
+               });
+ 
+               const publishResult = await publishResponse.json();
+               console.log(publishResult);
+               alert(JSON.stringify(publishResult));
+           } else {
+               alert('Error uploading image: ' + JSON.stringify(uploadResult));
+           }
+       });
+   </script>
+ 
+</body>
+</html>
