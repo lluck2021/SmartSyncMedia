@@ -1,25 +1,35 @@
 {
-  "name": "smartsync",
+  "homepage": "http://lluck2021.github.io/cust-dash-react",
+  "name": "cust-dash",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gitname.github.io/SmartSyncMedia",
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^5.16.7",
+    "@mui/material": "^5.16.7",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-native": "^0.75.4",
+    "react-native-fs": "^2.20.0",
+    "react-native-web": "^0.19.13",
+    "react-native-webview": "^13.12.3",
+    "react-pro-sidebar": "^0.7.1",
+    "react-router-dom": "^6.26.0",
     "react-scripts": "5.0.1",
-    "replicate": "^0.34.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
