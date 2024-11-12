@@ -3,39 +3,44 @@ import { createTheme, Typography } from "@mui/material";
 
 
 export const tokens = (mode) => ({
-    ...(mode === 'dark'
+    ...(mode === 'light'
         ? {
 
             primaryAccent: {
-                100: "#169B62",
+                100: "#030006",
+                200: "#06000c",
+                300: "#090113",
+                400: "#0c0119",
+                500: "#0f011f",
+                600: "#3f344c",
+                700: "#6f6779",
+                800: "#9f99a5",
+                900: "#cfccd2",
             },
             background: {
-                default: '#0a9138', //green background
+                default: '#fff',
             },
             primary: {
-                100: "#169B62",
-                200: "#139c13",//green side bar
-                
+                100: "#00001e",
+                200: "#00013c",
+                300: "#00015a",
+                400: "#000278",
+                500: "#000296",
+                600: "#3335ab",
+                700: "#6667c0",
+                800: "#999ad5",
+                900: "#ccccea",
             },
             secondary: {
-                100: "#FF883E", //orange 
-                200: "#fc7521",
-            },
-        }
-        : {
-
-            primaryAccent: {
-                100: "#169B62",
-            },
-            background: {
-                default: '#1ec918',
-            },
-            primary: {
-                100: "#169B62",
-                200: "#03a339",
-            },
-            secondary: {
-                100: "#FF883E",
+                100: "#10082b",
+                200: "#211056",
+                300: "#311782",
+                400: "#421fad",
+                500: "#5227d8",
+                600: "#7552e0",
+                700: "#977de8",
+                800: "#baa9ef",
+                900: "#dcd4f7",
             },
 
         }),
@@ -47,35 +52,18 @@ export const themeSettings = (mode) => {
     return {
         palette: {
             mode: mode,
-            ...(mode === 'dark'
+            ...(mode === 'light'
+
                 ? {
                     primary: {
                         main: colors.primary[100],
                     },
                     secondary: {
-                        main: colors.primaryAccent[100],
+                        main: colors.primaryAccent[500],
                     },
                     neutral: {
-                        dark: colors.secondary[100],
-                        main: colors.secondary[100],
-                        light: colors.secondary[100],
-                    },
-                    background: {
-                        default: colors.primary[100],
-                    },
-
-                }
-
-                : {
-                    primary: {
-                        main: colors.primary[100],
-                    },
-                    secondary: {
-                        main: colors.primaryAccent[100],
-                    },
-                    neutral: {
-                        dark: colors.secondary[100],
-                        main: colors.secondary[100],
+                        dark: colors.secondary[700],
+                        main: colors.secondary[500],
                         light: colors.secondary[100],
                     },
                     background: {
@@ -122,15 +110,7 @@ export const ColorModeContext = createContext({
 });
 
 export const useMode = () => {
-    const [mode, setMode] = useState("dark");
-
-    const colorMode = useMemo(
-        () => ({
-            toggleColorMode: () =>
-                setMode((prev) => (prev === "light" ? "dark" : "light")),
-        }),
-        []
-    );
+    const [mode, setMode] = useState("light");
 
     const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 

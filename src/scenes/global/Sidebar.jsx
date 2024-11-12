@@ -5,8 +5,9 @@ import 'react-pro-sidebar/dist/css/styles.css';
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import { Link } from "react-router-dom";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
+import AppShortcutIcon from '@mui/icons-material/AppShortcut';
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
     const theme = useTheme();
@@ -34,8 +35,12 @@ const Sidebar = () => {
 
     return (
         <Box sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100vh', // Set full height of the viewport
             "& .pro-sidebar-inner": {
-                background: `${colors.primary[700]} !important`,
+                background: `${colors.primary[200]} !important`,
+                height: '100%',
             },
 
             "& .pro-icon-wrapper": {
@@ -63,7 +68,7 @@ const Sidebar = () => {
                         icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
                         style={{
                             margin: "10px 0 20px 0",
-                            color: colors.secondary[200],
+                            color: colors.secondary[100],
                         }}
                     >
                         {!isCollapsed && (
@@ -72,7 +77,7 @@ const Sidebar = () => {
                                 alignItems="center"
                                 ml="15px"
                             >
-                                <Typography variant="h3" color={colors.secondary[200]}>KOACH</Typography>
+                                <Typography variant="h4" color={colors.secondary[100]}>Bridget's Irish Pub</Typography>
                                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                                     <MenuOutlinedIcon />
                                 </IconButton>
@@ -89,9 +94,17 @@ const Sidebar = () => {
                             setSelected={setSelected}
                         />
                         <Item
-                            title="Activities"
-                            to="/activities"
-                            icon={<ContactsOutlinedIcon />}
+                            title="Post Media"
+                            to="/posting"
+                            icon={<AppShortcutIcon />}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
+
+                        <Item
+                            title="AI Post Generator"
+                            to="/ai_image"
+                            icon={<AddToPhotosIcon />}
                             selected={selected}
                             setSelected={setSelected}
                         />

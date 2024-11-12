@@ -10,7 +10,7 @@ const Dashboard = () => {
 
     return (
         <Container>
-            <Typography variant="h2" color={colors.secondary?.[200] || '#000'}>
+            <Typography variant="h2" color={colors.secondary?.[100] || '#000'}>
                 Dashboard
             </Typography>
             <UsersInfo />
