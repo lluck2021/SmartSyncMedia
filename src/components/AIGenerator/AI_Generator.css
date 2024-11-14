@@ -1,0 +1,203 @@
+.App {
+    text-align: center;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  * {
+    box-sizing: border-box; /* Ensure padding is included in width/height */
+  }
+  
+  body {
+    font-family: Arial, sans-serif; /* Set a default font */
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center-align items horizontally */
+  }
+  
+  .heading {
+    margin: 20px 0; /* Add some space around the heading */
+    font-family: 'Irish Grover';
+    font-size: 36px;
+    background-color: rgba(87, 112, 65);
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .content {
+    display: flex; /* Set flex on the content area */
+    width: 100%; /* Full width of the container */
+  }
+  
+  .dropDown, .description{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  }
+  
+  
+  .left {
+    display: flex;
+    flex-direction: column; /* Stack boxes vertically */
+    flex: 1; /* Left section takes 1 part of the available space */
+    padding: 20px; /* Add padding */
+    margin-right: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    height: 550px;
+  }
+  
+  .box {
+    background-color: lightblue;
+    margin: 10px 0; /* Space between boxes */
+    padding: 20px;
+    border: 1px solid #000;
+  }
+  
+  .drop-area {
+    height: 300px;
+    border: 2px dashed #848181; /* Dashed border for the drop area */
+    padding: 20px;
+    margin: 10px 0; /* Space around the drop area */
+    text-align: center; /* Center text in the drop area */
+    background-color: #ccc;
+  }
+  
+  .text-overlay {
+    position: absolute;      /* Overlay on top of the image */
+    top: 50%;                /* Center vertically */
+    left: 50%;               /* Center horizontally */
+    transform: translate(-50%, -50%);  /* Center using transform */
+    color: white;            /* Text color */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);  /* Shadow for readability */
+    text-align: center;      /* Center the text */
+    padding: 5px;            /* Padding for better spacing */
+    width: 100%;             /* Text overlay matches the container width */
+    max-width: 100%;         /* Prevent text from exceeding the image's width */
+    background-color:#8380807c;
+    
+    /* Ensure text wraps within the container */
+    white-space: normal;     
+    word-wrap: break-word;   /* Break long words if necessary */
+    
+    /* Responsive font size */
+    font-size: calc(1em + 0.5vw);  /* Dynamically resize font based on viewport */
+    font-style: bold;
+    line-height: 1.4;         /* Adequate spacing between lines */
+    
+    max-height: 100%;         /* Ensure the text doesn’t exceed the image height */
+    overflow: hidden;         /* Prevent text from overflowing outside the container */
+  }
+  
+  .preview {
+    flex: 1; /* Preview section takes 1 part of the available space */
+    padding: 20px; /* Add padding */
+    background-color: lightgray;
+
+    border-radius: 10px;
+    height: 550px;
+    background-color:rgb(5, 96, 31)
+
+  }
+  
+  
+  .preview-image {
+    width: 100%;             /* Image takes full width of container */
+    height: auto;            /* Maintain the aspect ratio of the image */
+    object-fit: contain;     /* Ensure the image fits without being distorted */
+  }
+  
+  .image-container {
+    position: relative;
+    width: 100%;             /* Container takes full width of parent */
+    height: auto;            /* Height adjusts based on the image aspect ratio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+  }
+  
+  .preview-box {
+    border: 1px solid #000; /* Add border to the preview box */
+    padding: 20px;
+    height: 400px; /* Set a fixed height for the preview box */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative; /* Needed for positioning child elements */
+    width: 100%;
+    overflow: hidden; /* Hide any overflow */
+    flex-direction: column;
+  
+    overflow: hidden; /* Prevent overflow if content is too big */
+
+  }
+  
+  .generate-button {
+    margin-top: 20px; /* Space above the button */
+    height: 8%;
+    color: forestgreen;
+  }
+  
+  .accept {
+    background-color: rgb(0, 149, 42);
+    border-radius: 5px;
+    font-size: 15pt;
+    margin: 2pt;
+    margin-top: 5pt;
+    border-width: 3pt;
+    border-style: outset;
+    border-color:rgb(5, 96, 31)
+  }
+  
+  .deny {
+    background-color: rgb(255, 145, 0);
+    border-radius: 5px;
+    font-size: 15pt;
+    margin: 2pt;
+    margin-top: 5pt;
+    border-width: 3pt;
+    border-style: outset;
+    border-color:rgb(179, 95, 0)
+  }
+  
+  .submitButtons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

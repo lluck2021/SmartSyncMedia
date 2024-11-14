@@ -28,6 +28,8 @@ function App() {
         </div>
       </ThemeProvider>
     </ColorModeContext.Provider>
+
+    
   );
 }
 
